@@ -17,4 +17,4 @@ with DAG(
         dag=dag
     )
 
-    executa_sh
+    [executa_sh]
