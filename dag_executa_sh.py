@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.contrib.hooks.ssh_hook import SSHHook
 
 def executa_sh():
-    ssh = SSHHook(ssh_conn_id=SSH_ETL_DESENV)
+    ssh = SSHHook(ssh_conn_id='SSH_ETL_DESENV')
     ssh_client = None
     try:
         ssh_client = ssh.get_conn()
