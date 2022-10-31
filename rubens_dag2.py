@@ -45,4 +45,4 @@ with DAG(
         bash_command = "echo 'Quantidade Não OK'"
     )
 
-    captura_conta_dados >> e_valida >> [valido, n_valido]
+    #captura_conta_dados >> e_valida >> [valido, n_valido]
