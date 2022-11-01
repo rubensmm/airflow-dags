@@ -10,7 +10,8 @@ def executa_sh():
     try:
         ssh_client = ssh.get_conn()
         ssh_client.load_system_host_keys()
-        ssh_client.exec_command('/home/etl/etl/sh/teste_rubens.sh -h')
+        #ssh_client.exec_command('/home/etl/etl/sh/teste_rubens.sh -h')
+        ssh_client.exec_command('/home/etl/etl/sh/job_auditor_eletronico_loop.sh -h')
     finally:
         if ssh_client:
             ssh_client.close()
