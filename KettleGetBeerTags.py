@@ -10,7 +10,7 @@ def executa_sh():
     try:
         ssh_client = ssh.get_conn()
         ssh_client.load_system_host_keys()
-        ssh_client.exec_command('/home/etl/data-integration9.3/kitchen.sh -file=/home/etl/etl/tmp/COPIA_ARQUIVO.ktr')
+        ssh_client.exec_command('/home/etl/data-integration9.3/kitchen.sh -file=/home/etl/etl/tmp/JobKettle.kjb')
     finally:
         if ssh_client:
             ssh_client.close()
