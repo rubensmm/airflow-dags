@@ -15,7 +15,7 @@ DEFAULT_ARGS = {
     'start_date': days_ago(2),
     'email': ['airflow@example.com'],
     'retries': 3,
-    'retry_delay': timedelta(minutes=10),
+    'retry_delay': timedelta(minutes=1),
     'email_on_failure': False,
     'email_on_retry': False
 }
