@@ -28,7 +28,7 @@ with DAG(dag_id=DAG_NAME,
       trans1 = CarteTransOperator(
         dag=dag,
         task_id='trans1',
-        trans='C:\tmp\COPIA_ARQUIVO.ktr',
+        trans="'C:\tmp\COPIA_ARQUIVO.ktr'",
         params={'date': '{{ ds }}'})
   
       [trans1]
