@@ -30,5 +30,5 @@ with DAG(dag_id=DAG_NAME,
         task_id='trans1',
         trans='C:\tmp\COPIA_ARQUIVO',
         params={'date': '{{ ds }}'})
-
-    [trans1]
+        
+      [trans1]
