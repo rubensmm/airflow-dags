@@ -29,8 +29,8 @@ with DAG(dag_id=DAG_NAME,
         dag=dag,
         task_id='job1',
         xcom_push=True,
-        directory='/home/bi',
-        job='test_job',
+        directory='C:\tmp',
+        job='JobKettle',
         params={'date': '{{ ds }}'})
 
     trans1 = PanOperator(
