@@ -31,4 +31,11 @@ with DAG(dag_id=DAG_NAME,
         trans='C:/tmp/COPIA_ARQUIVO',
         params={'date': '{{ ds }}'})
         
-      [trans1]
+      enriche_customers = CarteTransOperator(
+        conn_id='pdi_default',
+        task_id="enrich_customer_data",
+        job="C:/tmp/COPIA_ARQUIVO",
+        params={"date": "{{ ds }}"},  # Date in yyyy-mm-dd format
+        dag=dag)
+  
+      [enriche_customers]
