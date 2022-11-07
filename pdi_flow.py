@@ -37,20 +37,8 @@ with DAG(dag_id=DAG_NAME,
         dag=dag,
         task_id='trans1',
         xcom_push=True,
-        directory='/home/bi',
-        trans='test_trans',
+        directory='C:\tmp',
+        trans='COPIA_ARQUIVO',
         params={'date': '{{ ds }}'})
 
-    trans2 = CarteTransOperator(
-        dag=dag,
-        task_id='trans2',
-        trans='/home/bi/test_trans',
-        params={'date': '{{ ds }}'})
-
-    job3 = CarteJobOperator(
-        dag=dag,
-        task_id='job3',
-        job='/home/bi/test_job',
-        params={'date': '{{ ds }}'})
-
-    job1 >> trans1 >> trans2 >> job3
+    job1 >> trans1
