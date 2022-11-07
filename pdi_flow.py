@@ -25,20 +25,10 @@ with DAG(dag_id=DAG_NAME,
          dagrun_timeout=timedelta(hours=2),
          schedule_interval='30 0 * * *') as dag:
 
-    job1 = KitchenOperator(
-        dag=dag,
-        task_id='job1',
-        xcom_push=True,
-        directory='C:\tmp',
-        job='JobKettle',
-        params={'date': '{{ ds }}'})
-
-    trans1 = PanOperator(
+      trans1 = CarteTransOperator(
         dag=dag,
         task_id='trans1',
-        xcom_push=True,
-        directory='C:\tmp',
-        trans='COPIA_ARQUIVO',
+        trans='C:\tmp\COPIA_ARQUIVO',
         params={'date': '{{ ds }}'})
 
-    job1 >> trans1
+    [trans1]
