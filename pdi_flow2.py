@@ -29,6 +29,7 @@ with DAG(dag_id=DAG_NAME,
         dag=dag,
         task_id='trans1',
         trans='C:/tmp/COPIA_ARQUIVO.ktr',
+        level='Debug',
         params={'date': '{{ ds }}'})
   
       [trans1]
