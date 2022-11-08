@@ -25,11 +25,17 @@ with DAG(dag_id=DAG_NAME,
          dagrun_timeout=timedelta(hours=2),
          schedule_interval='30 0 * * *') as dag:
 
+      job1 = CarteJobOperator(
+        dag=dag,
+        task_id="job1",
+        job="C:/tmp/JobKettle.kjb",
+        params={"date": "{{ ds }}"})
+
       trans1 = CarteTransOperator(
         dag=dag,
         task_id='trans1',
-        trans='C:/tmp/COPIA_ARQUIVO.ktr'
-        #params={'date': '{{ ds }}'}
-        )
+        trans='C:/tmp/COPIA_ARQUIVO.ktr',
+        params={'date': '{{ ds }}'}
+      )
 
-      [trans1]
+      job1 >> trans1
