@@ -6,7 +6,8 @@ from airflow.utils.dates import days_ago
 from airflow_pentaho.operators.kettle import KitchenOperator
 from airflow_pentaho.operators.kettle import PanOperator
 from airflow_pentaho.operators.carte import CarteJobOperator
-from airflow_pentaho.operators.carte import CarteTransOperator
+#from airflow_pentaho.operators.carte import CarteTransOperator
+from airflow.operators.airflow_pentaho import CarteTransOperator
 
 DAG_NAME = 'pdi_flow2'
 DEFAULT_ARGS = {
