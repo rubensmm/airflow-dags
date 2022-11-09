@@ -29,14 +29,14 @@ with DAG(dag_id=DAG_NAME,
       loop = CarteTransOperator(
         dag=dag,
         task_id='loop',
-        trans='C:/tmp/LOOP.ktr',
+        trans='C:/tmp/LOOP',
         params={'date': '{{ ds }}'}
       )
 
       copia = CarteTransOperator(
         dag=dag,
         task_id='copia',
-        trans='C:/tmp/COPIA_ARQUIVO.ktr',
+        trans='C:/tmp/COPIA_ARQUIVO',
         params={'date': '{{ ds }}'}
       )
 
