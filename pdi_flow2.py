@@ -24,7 +24,7 @@ with DAG(dag_id=DAG_NAME,
          default_args=DEFAULT_ARGS,
          dagrun_timeout=timedelta(hours=2),
          schedule_interval='30 0 * * *',
-         catchup = False) as dag:
+         catchup = True) as dag:
 
       loop = CarteTransOperator(
         dag=dag,
