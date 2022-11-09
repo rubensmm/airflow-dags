@@ -19,37 +19,37 @@ def _training_model(model):
 
     return randint(1, 10)
 
-    with DAG("modelo",
-        start_date        = datetime(2021, 1 ,1), # start date, the 1st of January 2021
-        schedule_interval = '@daily',             # Cron expression, here it is a preset of Airflow, @daily means once every day.
-        catchup           = False                 # Catchup 
-        ) as dag:
+with DAG("modelo",
+    start_date        = datetime(2021, 1 ,1), # start date, the 1st of January 2021
+    schedule_interval = '@daily',             # Cron expression, here it is a preset of Airflow, @daily means once every day.
+    catchup           = False                 # Catchup 
+    ) as dag:
 
-        training_model_tasks = [
-            PythonOperator(
-                task_id=f"training_model_{model_id}",
-                python_callable=_training_model,
-                op_kwargs={
-                    "model": model_id
-                }
-            ) for model_id in ['A', 'B', 'C']
-        ]
+    training_model_tasks = [
+        PythonOperator(
+            task_id=f"training_model_{model_id}",
+            python_callable=_training_model,
+            op_kwargs={
+                "model": model_id
+            }
+        ) for model_id in ['A', 'B', 'C']
+    ]
 
-        choosing_best_model = BranchPythonOperator(
-            task_id         = "choosing_best_model",
-            python_callable = _choosing_best_model
-        )
-
-
-        accurate = BashOperator(
-            task_id      = "accurate",
-            bash_command = "echo 'accurate'"
-        )
+    choosing_best_model = BranchPythonOperator(
+        task_id         = "choosing_best_model",
+        python_callable = _choosing_best_model
+    )
 
 
-        inaccurate = BashOperator(
-            task_id      = "inaccurate",
-            bash_command = "echo 'inaccurate'"
-        )
+    accurate = BashOperator(
+        task_id      = "accurate",
+        bash_command = "echo 'accurate'"
+    )
 
-        training_model_tasks >> choosing_best_model >> [accurate, inaccurate]
+
+    inaccurate = BashOperator(
+        task_id      = "inaccurate",
+        bash_command = "echo 'inaccurate'"
+    )
+
+    training_model_tasks >> choosing_best_model >> [accurate, inaccurate]
