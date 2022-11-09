@@ -14,8 +14,8 @@ DEFAULT_ARGS = {
     'depends_on_past': False,
     'start_date': days_ago(2),
     'email': ['airflow@example.com'],
-    'retries': 1,
-    'retry_delay': timedelta(minutes=1),
+    #'retries': 1,
+    #'retry_delay': timedelta(minutes=1),
     'email_on_failure': False,
     'email_on_retry': False
 }
@@ -25,10 +25,11 @@ with DAG(dag_id=DAG_NAME,
          dagrun_timeout=timedelta(hours=2),
          schedule_interval='30 0 * * *') as dag:
 
-      trans1 = CarteTransOperator(
+      copia = CarteTransOperator(
         dag=dag,
-        task_id='trans1',
-        trans='C:\tmp\COPIA_ARQUIVO',
-        params={'date': '{{ ds }}'})
+        task_id='copia',
+        trans='C:/tmp/COPIA_ARQUIVO.ktr',
+        params={'date': '{{ ds }}'}
+      )
   
-      [trans1]
+      [copia]
