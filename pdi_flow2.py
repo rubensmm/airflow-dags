@@ -39,4 +39,4 @@ with DAG(dag_id=DAG_NAME,
         params={'date': '{{ ds }}'}
       )
 
-      loop >> [copia]
+      loop >> copia
