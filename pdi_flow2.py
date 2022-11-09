@@ -11,7 +11,7 @@ from airflow_pentaho.operators.carte import CarteTransOperator
 DAG_NAME = 'pdi_flow2'
 DEFAULT_ARGS = {
     'owner': 'Airflow',
-    'depends_on_past': False,
+    'depends_on_past': True,
     'start_date': days_ago(2),
     'email': ['airflow@example.com'],
     #'retries': 1,
