@@ -23,8 +23,7 @@ DEFAULT_ARGS = {
 with DAG(dag_id=DAG_NAME,
          default_args=DEFAULT_ARGS,
          dagrun_timeout=timedelta(hours=2),
-         schedule_interval='30 0 * * *',
-         catchup = True) as dag:
+         schedule_interval='30 0 * * *') as dag:
 
       loop = CarteTransOperator(
         dag=dag,
