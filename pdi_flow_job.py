@@ -28,8 +28,8 @@ with DAG(dag_id=DAG_NAME,
       job1 = CarteJobOperator(
         dag=dag,
         task_id="job1",
-        job="/home/rmendonc/data-integration/transformacoes/JobKettle.kjb",
-        #job="C:/tmp/JobKettle",
+        #job="/home/rmendonc/data-integration/transformacoes/JobKettle.kjb",
+        job="C:/tmp/JobKettle",
         params={"date": "{{ ds }}"})
   
       [job1]
