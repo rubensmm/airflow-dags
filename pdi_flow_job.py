@@ -29,7 +29,7 @@ with DAG(dag_id=DAG_NAME,
         dag=dag,
         task_id="job1",
         #job="/home/rmendonc/data-integration/transformacoes/JobKettle.kjb",
-        job="C:/tmp/JobKettle",
+        job="C:/tmp/JobKettle.kjb",
         params={"date": "{{ ds }}"})
   
       [job1]
