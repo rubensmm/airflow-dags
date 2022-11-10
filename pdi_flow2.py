@@ -28,14 +28,14 @@ with DAG(dag_id=DAG_NAME,
       loop = CarteTransOperator(
         dag=dag,
         task_id='loop',
-        trans='/home/rmendonc/data-integration/transformacoes/LOOP',
+        trans='/home/rmendonc/data-integration/transformacoes/LOOP.ktr',
         params={'date': '{{ ds }}'}
       )
 
       copia = CarteTransOperator(
         dag=dag,
         task_id='copia',
-        trans='/home/rmendonc/data-integration/transformacoes/COPIA_ARQUIVO',
+        trans='/home/rmendonc/data-integration/transformacoes/COPIA_ARQUIVO.ktr',
         params={'date': '{{ ds }}'}
       )
 
