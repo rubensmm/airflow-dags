@@ -32,11 +32,11 @@ with DAG(dag_id=DAG_NAME,
         params={'date': '{{ ds }}'}
       )
 
-      """ copia = CarteTransOperator(
+      copia = CarteTransOperator(
         dag=dag,
         task_id='copia',
         trans='/home/rmendonc/data-integration/transformacoes/COPIA_ARQUIVO',
         params={'date': '{{ ds }}'}
-      ) """
+      )
 
-      [loop]
+      loop >> copia
