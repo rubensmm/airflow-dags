@@ -27,6 +27,7 @@ with DAG(dag_id=DAG_NAME,
 
       copia = CarteTransOperator(
         dag=dag,
+        pdi_conn_id='pdi_default',
         task_id='copia',
         trans='C:/tmp/ETL_AIRFLOW/LOOP',
         params={'date': '{{ ds }}'}
