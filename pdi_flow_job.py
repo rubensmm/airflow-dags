@@ -25,10 +25,16 @@ with DAG(dag_id=DAG_NAME,
          dagrun_timeout=timedelta(hours=2),
          schedule_interval='30 0 * * *') as dag:
 
-      job1 = CarteJobOperator(
+      job_loop = CarteJobOperator(
         dag=dag,
-        task_id="job1",
-        job="C:/tmp/ETL_AIRFLOW/Job1.kjb",
-        params={"date": "{{ ds }}"})  
+        task_id="job_loop",
+        job="C:/tmp/ETL_AIRFLOW/Job_loop.kjb",
+        params={"date": "{{ ds }}"})
+
+      job_copia = CarteJobOperator(
+        dag=dag,
+        task_id="job_copia",
+        job="C:/tmp/ETL_AIRFLOW/Job_copia_arquivo.kjb",
+        params={"date": "{{ ds }}"})
   
-      job1 
+      job_loop >> job_copia
