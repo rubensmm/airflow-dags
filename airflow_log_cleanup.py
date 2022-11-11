@@ -19,7 +19,7 @@ from airflow.models import DAG, Variable
 from airflow.operators.bash import BashOperator
 from airflow.operators.dummy import DummyOperator
 
-DAG_ID = 'airflow_log_cleanup'
+DAG_ID = os.path.basename(__file__).replace('.pyc', '').replace('.py', '')
 START_DATE = airflow.utils.dates.days_ago(1)
 try:
     BASE_LOG_FOLDER = conf.get('core', 'BASE_LOG_FOLDER').rstrip('/')
