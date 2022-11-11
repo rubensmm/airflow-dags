@@ -28,15 +28,7 @@ with DAG(dag_id=DAG_NAME,
       job_loop = CarteJobOperator(
         dag=dag,
         task_id="job_loop",
-        #job="/home/rmendonc/data-integration/transformacoes/JobKettle.kjb",
         job="C:/tmp/ETL_AIRFLOW/Job_loop.kjb",
-        params={"date": "{{ ds }}"})
-
-      job_copia = CarteJobOperator(
-        dag=dag,
-        task_id="job_copia",
-        #job="/home/rmendonc/data-integration/transformacoes/JobKettle.kjb",
-        job="C:/tmp/ETL_AIRFLOW/Job_copia_arquivo.kjb",
-        params={"date": "{{ ds }}"})
+        params={"date": "{{ ds }}"})  
   
-      job_loop >> job_copia
+      job_loop 
