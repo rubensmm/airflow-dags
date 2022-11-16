@@ -39,4 +39,12 @@ with DAG(dag_id=DAG_NAME,
         params={'date': '{{ ds }}'}
       )
 
+      teste = CarteTransOperator(
+        dag=dag,
+        task_id='teste',
+        trans='LOOP',
+        params={'date': '{{ ds }}'}
+      )
+
       loop >> copia
+      loop >> teste
