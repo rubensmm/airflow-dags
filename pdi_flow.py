@@ -29,7 +29,7 @@ with DAG(dag_id=DAG_NAME,
         dag=dag,
         pdi_conn_id='pdi_default',
         task_id='copia',
-        trans='LOOP',
+        trans='LOOP2',
         params={'date': '{{ ds }}'}
       )
   
